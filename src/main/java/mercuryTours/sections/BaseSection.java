@@ -1,9 +1,6 @@
 package mercuryTours.sections;
 
-import mercuryTours.elements.MailingInformationElements;
-import mercuryTours.elements.TopMenuElement;
-import mercuryTours.elements.ContactInformationElements;
-import mercuryTours.elements.UserInformationElements;
+import mercuryTours.elements.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +15,7 @@ public class BaseSection {
     protected ContactInformationElements contactInformationElements;
     protected MailingInformationElements mailingInformationElements;
     protected UserInformationElements userInformationElements;
+    protected SpecialsElemets specialsElemets;
     protected Logger log;
 
     public BaseSection(WebDriver driver) {
@@ -32,6 +30,7 @@ public class BaseSection {
         this.contactInformationElements = new ContactInformationElements(rootElement);
         this.mailingInformationElements = new MailingInformationElements(rootElement);
         this.userInformationElements = new UserInformationElements(rootElement);
+        this.specialsElemets = new SpecialsElemets(rootElement);
         this.log = LogManager.getLogger(BaseSection.class.getName());
     }
 }

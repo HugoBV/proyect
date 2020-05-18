@@ -1,9 +1,6 @@
 package mercuryTours.pages;
 
-import mercuryTours.sections.ContactInformationSection;
-import mercuryTours.sections.MailingInformationSection;
-import mercuryTours.sections.TopSection;
-import mercuryTours.sections.UserInformationSection;
+import mercuryTours.sections.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +13,7 @@ public class BasePage {
     protected ContactInformationSection contactInformationSection;
     protected MailingInformationSection mailingInformationSection;
     protected UserInformationSection userInformationSection;
+    protected SpecialsSection specialsSection;
 
     public BasePage(WebDriver driver, String baseURL) {
         this.driver = driver;
@@ -30,6 +28,7 @@ public class BasePage {
             contactInformationSection = new ContactInformationSection(driver);
             mailingInformationSection = new MailingInformationSection(driver);
             userInformationSection = new UserInformationSection(driver);
+            specialsSection = new SpecialsSection(driver);
         }
     }
 

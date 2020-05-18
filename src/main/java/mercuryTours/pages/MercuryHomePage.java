@@ -1,6 +1,10 @@
 package mercuryTours.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.How;
 
 public class MercuryHomePage extends BasePage{
 
@@ -14,13 +18,21 @@ public class MercuryHomePage extends BasePage{
         driver.get(MERCURY_MAIN_PAGE);
     }
 
-    public MercuryRegisterPage goDesiredPage(String option){
+    @FindBy(how = How.CSS, using = "img[src$='destination.gif']")
+    private WebElement featuredHeader;
+
+    public MercuryRegisterPage goRegisterPage(String option){
         this.topSection.clickOnMenuOption(option);
         return new MercuryRegisterPage(this.driver);
     }
 
-    public void other(){
-        this.topSection.other();
+    public MercurySignOnPage goSignOnPage(String option){
+        this.topSection.clickOnMenuOption(option);
+        return new MercurySignOnPage(this.driver);
+    }
+
+    public boolean isSpecialSectionAvailable(){
+        return specialsSection.isSpecialsHeaderVisible();
     }
 
 }
