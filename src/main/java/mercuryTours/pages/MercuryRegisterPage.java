@@ -10,8 +10,18 @@ public class MercuryRegisterPage extends BasePage {
     @FindBy(how = How.CSS, using = "input[name=register]")
     private WebElement submit;
 
+    @FindBy(how = How.CSS, using = "img[src$='register.gif']")
+    private WebElement registerHeader;
+
     public MercuryRegisterPage(WebDriver driver) {
         super(driver, driver.getCurrentUrl());
+    }
+
+    public boolean isHeaderVisible(){
+        if(registerHeader.isDisplayed())
+            return true;
+        else
+            return false;
     }
 
     public void fillContactInformation(String fName, String lName,String phone, String email){

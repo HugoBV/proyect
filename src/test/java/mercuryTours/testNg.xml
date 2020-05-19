@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite thread-count="1" verbose="1" name="Mercury" annotations="JDK" parallel="tests">
+
+    <test name="Sign-On: Page">
+        <classes>
+            <class name="mercuryTours.signOnTest"/>
+        </classes>
+    </test>
+    <test name="Home: Page">
+        <classes>
+            <class name="mercuryTours.homeTest"/>
+        </classes>
+    </test>
+    <test name="Register: Page">
+        <classes>
+            <class name="mercuryTours.registerTest"/>
+        </classes>
+    </test>
+</suite>

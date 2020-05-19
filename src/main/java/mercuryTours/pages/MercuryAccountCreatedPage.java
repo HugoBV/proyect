@@ -27,4 +27,9 @@ public class MercuryAccountCreatedPage extends BasePage{
         singInLnk.click();
         return new MercurySignOnPage(this.driver);
     }
+
+    public MercuryFlightsPage goFlightsPage(String option){
+        this.leftSection.clickOnMenuOption(option);
+        return new MercuryFlightsPage(this.driver);
+    }
 }
