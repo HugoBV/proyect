@@ -29,10 +29,7 @@ public class MercurySignOnPage extends BasePage{
     private WebElement copyright;
 
     public boolean pageReady(){
-        if(userName.isDisplayed())
-            return true;
-        else
-            return false;
+        return userName.isDisplayed();
     }
 
     public boolean verifyWelcomeMsg(){

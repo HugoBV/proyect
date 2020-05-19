@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
 
-public class UserInformationElements extends BaseElement{
-    public UserInformationElements(WebElement rootElement) {
+public class UserInformationElement extends BaseElement{
+    public UserInformationElement(WebElement rootElement) {
         super(rootElement);
     }
     private String[][] rawElements =

@@ -8,7 +8,7 @@ public class SpecialsSection extends BaseSection {
     }
 
     public boolean isSpecialsHeaderVisible(){
-        if(specialsElemets.getSpecialHeader().size()>0){
+        if(specialsElements.getSpecialHeader().size()>0){
             return true;
         }else
             return false;

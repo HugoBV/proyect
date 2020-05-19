@@ -10,10 +10,12 @@ public class BasePage {
     protected WebDriver driver;
     protected String baseURL;
     protected TopSection topSection;
+    protected LeftSection leftSection;
     protected ContactInformationSection contactInformationSection;
     protected MailingInformationSection mailingInformationSection;
     protected UserInformationSection userInformationSection;
     protected SpecialsSection specialsSection;
+    protected FlightDetailsSection flightDetailsSection;
 
     public BasePage(WebDriver driver, String baseURL) {
         this.driver = driver;
@@ -25,10 +27,12 @@ public class BasePage {
     private void initSections() {
         if (this.isLoaded()) {
             topSection = new TopSection(driver);
+            leftSection = new LeftSection(driver);
             contactInformationSection = new ContactInformationSection(driver);
             mailingInformationSection = new MailingInformationSection(driver);
             userInformationSection = new UserInformationSection(driver);
             specialsSection = new SpecialsSection(driver);
+            flightDetailsSection = new FlightDetailsSection(driver);
         }
     }
 

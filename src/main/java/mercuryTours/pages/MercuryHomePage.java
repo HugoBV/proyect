@@ -2,8 +2,7 @@ package mercuryTours.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.FindBy;;
 import org.openqa.selenium.support.How;
 
 public class MercuryHomePage extends BasePage{
@@ -29,6 +28,26 @@ public class MercuryHomePage extends BasePage{
     public MercurySignOnPage goSignOnPage(String option){
         this.topSection.clickOnMenuOption(option);
         return new MercurySignOnPage(this.driver);
+    }
+
+    public MercuryFlightsPage goFlightsPage(String option){
+        this.leftSection.clickOnMenuOption(option);
+        return new MercuryFlightsPage(this.driver);
+    }
+
+    public MercuryCruisesPage goCruisesPage(String option){
+        this.leftSection.clickOnMenuOption(option);
+        return new MercuryCruisesPage(this.driver);
+    }
+
+    public MercuryUnderConstructionPage goSupportPage(String option){
+        this.topSection.clickOnMenuOption(option);
+        return new MercuryUnderConstructionPage(this.driver);
+    }
+
+    public MercuryUnderConstructionPage goContactPage(String option){
+        this.topSection.clickOnMenuOption(option);
+        return new MercuryUnderConstructionPage(this.driver);
     }
 
     public boolean isSpecialSectionAvailable(){

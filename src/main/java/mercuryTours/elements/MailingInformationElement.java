@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.HashMap;
 
-public class MailingInformationElements extends BaseElement {
-    public MailingInformationElements(WebElement rootElement) {
+public class MailingInformationElement extends BaseElement {
+    public MailingInformationElement(WebElement rootElement) {
         super(rootElement);
     }
 
