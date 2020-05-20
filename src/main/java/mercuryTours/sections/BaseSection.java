@@ -18,6 +18,8 @@ public class BaseSection {
     protected UserInformationElement userInformationElements;
     protected SpecialsElements specialsElements;
     protected FlightDetailsElement flightDetailsElement;
+    protected FlightPreferencesElement flightPreferencesElement;
+    protected FlightSelectFlightElement flightSelectFlightElement;
     protected Logger log;
 
     public BaseSection(WebDriver driver) {
@@ -35,6 +37,8 @@ public class BaseSection {
         this.userInformationElements = new UserInformationElement(rootElement);
         this.specialsElements = new SpecialsElements(rootElement);
         this.flightDetailsElement = new FlightDetailsElement(rootElement);
+        this.flightPreferencesElement = new FlightPreferencesElement(rootElement);
+        this.flightSelectFlightElement = new FlightSelectFlightElement(rootElement);
         this.log = LogManager.getLogger(BaseSection.class.getName());
     }
 }
