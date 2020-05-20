@@ -16,6 +16,8 @@ public class BasePage {
     protected UserInformationSection userInformationSection;
     protected SpecialsSection specialsSection;
     protected FlightDetailsSection flightDetailsSection;
+    protected FlightPreferencesSection flightPreferencesSection;
+    protected SelectFlightTable selectFlightTable;
 
     public BasePage(WebDriver driver, String baseURL) {
         this.driver = driver;
@@ -26,13 +28,15 @@ public class BasePage {
 
     private void initSections() {
         if (this.isLoaded()) {
-            topSection = new TopSection(driver);
-            leftSection = new LeftSection(driver);
-            contactInformationSection = new ContactInformationSection(driver);
-            mailingInformationSection = new MailingInformationSection(driver);
-            userInformationSection = new UserInformationSection(driver);
-            specialsSection = new SpecialsSection(driver);
-            flightDetailsSection = new FlightDetailsSection(driver);
+            this.topSection = new TopSection(driver);
+            this.leftSection = new LeftSection(driver);
+            this.contactInformationSection = new ContactInformationSection(driver);
+            this.mailingInformationSection = new MailingInformationSection(driver);
+            this.userInformationSection = new UserInformationSection(driver);
+            this.specialsSection = new SpecialsSection(driver);
+            this.flightPreferencesSection = new FlightPreferencesSection(driver);
+            this.flightDetailsSection = new FlightDetailsSection(driver);
+            this.selectFlightTable = new SelectFlightTable(driver);
         }
     }
 
