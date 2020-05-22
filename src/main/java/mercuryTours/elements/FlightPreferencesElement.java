@@ -18,7 +18,7 @@ public class FlightPreferencesElement extends BaseElement {
             };
 
     private final String[][] selElements =
-            {{"passengerSel","//select[@name='airline']","XPATH"},
+            {{"airlineSel","//select[@name='airline']","XPATH"},
 
             };
 
