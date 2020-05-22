@@ -27,21 +27,21 @@ public class MercuryFlightsPage extends BasePage{
         this.flightPreferencesSection.selectDropdownOptionByVisibleText(values[1]);
     }
 
-    public MercurySelectFlight continueToSelectFlight(){
+    public MercurySelectFlightPage continueToSelectFlight(){
         this.flightContinue.click();
-        return new MercurySelectFlight(this.driver);
+        return new MercurySelectFlightPage(this.driver);
     }
 
     public boolean isContinueButtonVisible(){
         return  this.flightContinue.isDisplayed();
     }
 
-    public MercurySelectFlight flightFinderFull(String[] fDetails, String sClass, String airline){
+    public MercurySelectFlightPage flightFinderFull(String[] fDetails, String sClass, String airline){
         this.flightDetailsSection.filFlightDetailsFull(fDetails);
         this.flightPreferencesSection.selectServicesClass(sClass);
         this.flightPreferencesSection.selectDropdownOptionByVisibleText(airline);
         this.flightContinue.click();
-        return new MercurySelectFlight(this.driver);
+        return new MercurySelectFlightPage(this.driver);
     }
 
     public boolean isExpectedRadioChecked(String expected){

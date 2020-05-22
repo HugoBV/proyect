@@ -22,4 +22,9 @@
             <class name="mercuryTours.FlightsTest"/>
         </classes>
     </test>
+    <test name="SelectFlight: Page">
+        <classes>
+            <class name="mercuryTours.SelectFlightTest"/>
+        </classes>
+    </test>
 </suite>
