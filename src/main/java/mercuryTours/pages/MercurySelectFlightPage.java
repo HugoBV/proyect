@@ -7,8 +7,8 @@ import org.openqa.selenium.support.How;
 
 import java.util.HashMap;
 
-public class MercurySelectFlight extends BasePage {
-    public MercurySelectFlight(WebDriver driver)  {
+public class MercurySelectFlightPage extends BasePage {
+    public MercurySelectFlightPage(WebDriver driver)  {
         super(driver, driver.getCurrentUrl());
     }
 
@@ -22,12 +22,24 @@ public class MercurySelectFlight extends BasePage {
     protected String departTableXpath = "/html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table[1]/tbody/tr";
     protected String returnTableXpath = "/html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table[2]/tbody/tr";
 
-    public HashMap selectDepartFlight(int idx){
+    public HashMap<String, String> selectDepartFlight(int idx){
         selectFlightTable.checkRadioSelectFlightPage(departTableXpath,idx);
         return selectFlightTable.getTableContentSelectFlightPage(departTableXpath);
     }
 
-    public HashMap selectReturnFlight(int idx){
+    public boolean checkDepartFlightTableColumns(int idx){
+        selectFlightTable.checkRadioSelectFlightPage(departTableXpath,idx);
+        HashMap<String, String> row = selectFlightTable.getTableContentSelectFlightPage(departTableXpath);
+        return (!row.get("flight").isEmpty()&&!row.get("departTime").isEmpty()&&!row.get("stops").isEmpty());
+    }
+
+    public boolean checkReturnFlightTableColumns(int idx){
+        selectFlightTable.checkRadioSelectFlightPage(returnTableXpath,idx);
+        HashMap<String, String> row = selectFlightTable.getTableContentSelectFlightPage(returnTableXpath);
+        return (!row.get("flight").isEmpty()&&!row.get("departTime").isEmpty()&&!row.get("stops").isEmpty());
+    }
+
+    public HashMap<String, String>  selectReturnFlight(int idx){
         selectFlightTable.checkRadioSelectFlightPage(returnTableXpath,idx);
         return selectFlightTable.getTableContentSelectFlightPage(returnTableXpath);
     }
