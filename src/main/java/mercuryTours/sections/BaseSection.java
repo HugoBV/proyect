@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.util.List;
 
 
 public class BaseSection {
@@ -41,4 +42,5 @@ public class BaseSection {
         this.flightSelectFlightElement = new FlightSelectFlightElement(rootElement);
         this.log = LogManager.getLogger(BaseSection.class.getName());
     }
+
 }

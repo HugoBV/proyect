@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import java.util.HashMap;
+
 public class MercuryFlightsPage extends BasePage{
     public MercuryFlightsPage(WebDriver driver) {
         super(driver, driver.getCurrentUrl());
@@ -30,6 +32,10 @@ public class MercuryFlightsPage extends BasePage{
         return new MercurySelectFlight(this.driver);
     }
 
+    public boolean isContinueButtonVisible(){
+        return  this.flightContinue.isDisplayed();
+    }
+
     public MercurySelectFlight flightFinderFull(String[] fDetails, String sClass, String airline){
         this.flightDetailsSection.filFlightDetailsFull(fDetails);
         this.flightPreferencesSection.selectServicesClass(sClass);
@@ -37,4 +43,54 @@ public class MercuryFlightsPage extends BasePage{
         this.flightContinue.click();
         return new MercurySelectFlight(this.driver);
     }
+
+    public boolean isExpectedRadioChecked(String expected){
+        return this.flightDetailsSection.getSelectedRadio().equals(expected);
+    }
+
+    public boolean checkIfFlightDetailsDefaultValuesAreTheExpected(String[] expectedValues){ //type,passengers,departing,onMonth,onDay,returning,returningMonth,returningDay
+        HashMap<String, String> selectedValues = this.flightDetailsSection.getFlightDetailsValues();
+        return (expectedValues[0].equals(selectedValues.get("type"))&&
+                expectedValues[1].contains(selectedValues.get("passengers"))&&
+                expectedValues[2].equals(selectedValues.get("departing"))&&
+                expectedValues[3].equals(selectedValues.get("onMonth"))&&
+                expectedValues[4].contains(selectedValues.get("onDay"))&&
+                expectedValues[5].equals(selectedValues.get("arriving"))&&
+                expectedValues[6].equals(selectedValues.get("returningMonth"))&&
+                expectedValues[7].contains(selectedValues.get("returningDay")));
+    }
+
+    public boolean isOneRadioDeselectedWhenOtherRadioIsSelected(String radioValue){
+
+        return this.flightDetailsSection.isGotDeselected(radioValue);
+    }
+
+    public boolean validateDetailsDropdowns(String expectedDefault, String[] expectedOptions, String dropDownName){
+
+        return (this.flightDetailsSection.checkDetailsDropdownDefaultValue(expectedDefault,dropDownName) && this.flightDetailsSection.checkDetailsDropdownOptions(expectedOptions,dropDownName));
+
+    }
+
+    public boolean validatePreferencesDropdowns(String expectedDefault, String[] expectedOptions, String dropDownName){
+
+        return (this.flightPreferencesSection.checkPreferencesDropdownDefaultValue(expectedDefault,dropDownName) && this.flightPreferencesSection.checkPreferencesDropdownOptions(expectedOptions,dropDownName));
+
+    }
+
+    public boolean isOneServiceClassRadioDeselectedWhenOtherRadioIsSelected(String radioValue){
+
+        return this.flightPreferencesSection.isGotDeselected(radioValue);
+    }
+
+    public boolean checkIfFlightPreferencesDefaultValuesAreTheExpected(String expectedServClassDefaultValue, String expectedAirlineDefaultValue){
+        String servClass = "";
+        if(expectedServClassDefaultValue.toLowerCase().contains("economy"))
+        {
+            servClass = "economy";
+        }else {
+            servClass = expectedServClassDefaultValue;
+        }
+        return this.flightPreferencesSection.checkFlightPreferencesDefaultValues(servClass,expectedAirlineDefaultValue);
+    }
+
 }

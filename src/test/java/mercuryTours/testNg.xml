@@ -17,4 +17,9 @@
             <class name="mercuryTours.registerTest"/>
         </classes>
     </test>
+    <test name="Flights: Page">
+        <classes>
+            <class name="mercuryTours.FlightsTest"/>
+        </classes>
+    </test>
 </suite>
