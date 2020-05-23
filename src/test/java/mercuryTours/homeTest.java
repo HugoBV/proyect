@@ -1,12 +1,17 @@
 package mercuryTours;
 
+import io.qameta.allure.Feature;
 import mercuryTours.pages.*;
 import org.testng.Assert;
+import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 
+@Epic("Home Page Testing")
+@Feature("Testing Home Page basic features")
 public class homeTest extends BaseTest{
 
     @Test(priority = 0, description = "TC12_Home Page - Left Menu(Flights)_User is redirected to Flights Page. Without sign in")
+
     public void usingLeftMenuToGoFlightsPageNoSignIn(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);

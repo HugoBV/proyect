@@ -27,7 +27,7 @@ public class FlightDetailsSection extends BaseSection {
         this.flightDetailsElement.getFlightDetailsSelElements().get(dropDownName).selectByVisibleText(value);
     }
 
-    public void filFlightDetailsFull(String[] values){
+    public void fillFlightDetailsFull(String[] values){
         this.flightDetailsElement.getFlightDetailsNoSelElements().get(values[0]).click();
         this.flightDetailsElement.getFlightDetailsSelElements().get("passengerSel").selectByVisibleText(values[1]);
         this.flightDetailsElement.getFlightDetailsSelElements().get("departingFromSel").selectByVisibleText(values[2]);

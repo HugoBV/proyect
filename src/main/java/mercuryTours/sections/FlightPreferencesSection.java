@@ -12,6 +12,11 @@ public class FlightPreferencesSection extends BaseSection {
         super(driver);
     }
 
+    public void fillFlightPrefereces(String[] values){
+        this.flightPreferencesElement.getFlightPreferencesNoSelElements().get(values[0]).click();
+        this.flightPreferencesElement.getFlightPreferencesSelElements().get("airlineSel").selectByVisibleText(values[1]);
+
+    }
     public void selectServicesClass(String type){
         this.flightPreferencesElement.getFlightPreferencesNoSelElements().get(type).click();
     }

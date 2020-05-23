@@ -2,8 +2,10 @@ package mercuryTours.pages;
 
 import mercuryTours.sections.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class BasePage {
 
@@ -18,6 +20,8 @@ public class BasePage {
     protected FlightDetailsSection flightDetailsSection;
     protected FlightPreferencesSection flightPreferencesSection;
     protected SelectFlightTable selectFlightTable;
+    protected BookFlightPassengerInfoSection bookFlightPassengerInfoSection;
+    protected BookFlightSummarySection bookFlightSummarySection;
 
     public BasePage(WebDriver driver, String baseURL) {
         this.driver = driver;
@@ -37,8 +41,11 @@ public class BasePage {
             this.flightPreferencesSection = new FlightPreferencesSection(driver);
             this.flightDetailsSection = new FlightDetailsSection(driver);
             this.selectFlightTable = new SelectFlightTable(driver);
+            this.bookFlightPassengerInfoSection = new BookFlightPassengerInfoSection(driver);
+            this.bookFlightSummarySection = new BookFlightSummarySection(driver);
         }
     }
+
 
     public boolean isLoaded() {
 
