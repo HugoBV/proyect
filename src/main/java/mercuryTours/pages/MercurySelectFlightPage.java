@@ -19,8 +19,8 @@ public class MercurySelectFlightPage extends BasePage {
         return selectFlightTable.isSelectFlightVisible();
     }
 
-    protected String departTableXpath = "/html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table[1]/tbody/tr";
-    protected String returnTableXpath = "/html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table[2]/tbody/tr";
+    private String departTableXpath = "/html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table[1]/tbody/tr";
+    private String returnTableXpath = "/html/body/div[1]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table[2]/tbody/tr";
 
     public HashMap<String, String> selectDepartFlight(int idx){
         selectFlightTable.checkRadioSelectFlightPage(departTableXpath,idx);
@@ -44,7 +44,9 @@ public class MercurySelectFlightPage extends BasePage {
         return selectFlightTable.getTableContentSelectFlightPage(returnTableXpath);
     }
 
-    public void goBookFlight(){
+    public MercuryBookFlightPage goBookFlight(){
+
         continue2BookFlight.click();
+        return new MercuryBookFlightPage(this.driver);
     }
 }

@@ -19,12 +19,18 @@ public class MercuryFlightsPage extends BasePage{
         return flightDetailsSection.isFightFinderHeaderVisible();
     }
     public void setFlightDetails(String[] values){
-        this.flightDetailsSection.filFlightDetailsFull(values);
+        this.flightDetailsSection.fillFlightDetailsFull(values);
     }
 
     public void setFlightPreferences(String[] values){
-        this.flightPreferencesSection.selectServicesClass(values[0]);
-        this.flightPreferencesSection.selectDropdownOptionByVisibleText(values[1]);
+        this.flightPreferencesSection.fillFlightPrefereces(values);
+    }
+
+    public void fillFlightFinderForm(String[] values){
+        String[] pref = {values[values.length-2],values[values.length-1]};
+        this.setFlightDetails(values);
+
+        this.setFlightPreferences(pref);
     }
 
     public MercurySelectFlightPage continueToSelectFlight(){
@@ -37,7 +43,7 @@ public class MercuryFlightsPage extends BasePage{
     }
 
     public MercurySelectFlightPage flightFinderFull(String[] fDetails, String sClass, String airline){
-        this.flightDetailsSection.filFlightDetailsFull(fDetails);
+        this.flightDetailsSection.fillFlightDetailsFull(fDetails);
         this.flightPreferencesSection.selectServicesClass(sClass);
         this.flightPreferencesSection.selectDropdownOptionByVisibleText(airline);
         this.flightContinue.click();
