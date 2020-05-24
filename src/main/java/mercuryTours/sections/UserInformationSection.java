@@ -30,4 +30,9 @@ public class UserInformationSection extends BaseSection {
         else
             return false;
     }
+
+    public boolean isFieldMarkedAsMandatory(String field){
+        return this.userInformationElements.getUserTxtElements().get(field+"LblColor").getAttribute("color")!=null&&
+                this.userInformationElements.getUserTxtElements().get(field+"LblColor").getAttribute("color").equals("red");
+    }
 }

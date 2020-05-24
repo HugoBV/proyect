@@ -13,14 +13,17 @@ public class MercuryAccountCreatedPage extends BasePage{
     @FindBy(how = How.XPATH, using = "//b[contains(text(),'Dear')]")
     private WebElement msg1;
 
-    @FindBy(how = How.XPATH, using = "//a[contains(text(),' sign-in ')]")
+       @FindBy(how = How.XPATH, using = "//a[contains(text(),' sign-in ')]")
     private WebElement singInLnk;
 
-    public boolean registrationMessageIsVisible(String expectedMessage){
+    public boolean registrationMessageIsVisible(){
 
-        if(msg1.getText().equals(expectedMessage))
-        return true;
-        else return false;
+        return (msg1.isDisplayed());
+    }
+
+    public boolean registrationMessageExpectedValue(String expectedMessage){
+        System.out.println(msg1.getText() + " <>" + expectedMessage);
+        return (msg1.getText().equals(expectedMessage));
     }
 
     public MercurySignOnPage pressSignInLink(){

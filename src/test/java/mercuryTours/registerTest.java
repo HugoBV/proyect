@@ -31,7 +31,7 @@ public class registerTest extends BaseTest{
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
         String expectedMessage1 = "Dear ,";
-        Assert.assertTrue(regPage.getRegistrationDone().registrationMessageIsVisible(expectedMessage1),"User Name displayed with the register name that you provide at the formulary");
+        Assert.assertTrue(regPage.getRegistrationDone().registrationMessageExpectedValue(expectedMessage1),"User Name displayed with the register name that you provide at the formulary");
     }
 
     @Test(priority = 2, description = "TC04_Registration Page_User Mandadory Fields and Not Mandatory-Submit")
@@ -40,7 +40,7 @@ public class registerTest extends BaseTest{
         String expectedMessage1 = "Dear "+regInfo[0]+" "+regInfo[1]+",";
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
-        Assert.assertTrue(regPage.getRegistrationDone(regInfo).registrationMessageIsVisible(expectedMessage1),"User Name displayed with the register name that you provide at the formulary");
+        Assert.assertTrue(regPage.getRegistrationDone(regInfo).registrationMessageExpectedValue(expectedMessage1),"User Name displayed with the register name that you provide at the formulary");
     }
 
     @Test(priority = 3, description = "TC05_Registration Page_Sign In Link")
