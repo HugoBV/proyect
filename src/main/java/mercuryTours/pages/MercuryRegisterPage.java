@@ -61,4 +61,16 @@ public class MercuryRegisterPage extends BasePage {
         this.submit.click();
         return new MercuryAccountCreatedPage(this.driver);
     }
+
+    public boolean checkIfContactFieldIsMandatoryAKARed(String field){
+        return this.contactInformationSection.isFieldMarkedAsMandatory(field);
+    }
+
+    public boolean checkIfMailingFieldIsMandatoryAKARed(String field){
+        return this.mailingInformationSection.isFieldMarkedAsMandatory(field);
+    }
+
+    public boolean checkIfUserFieldIsMandatoryAKARed(String field){
+        return this.userInformationSection.isFieldMarkedAsMandatory(field);
+    }
 }

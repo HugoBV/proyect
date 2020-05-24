@@ -18,4 +18,9 @@ public class MailingInformationSection extends BaseSection {
         this.mailingInformationElements.getCountryDropdown().selectByVisibleText(country.toUpperCase());
     }
 
+    public boolean isFieldMarkedAsMandatory(String field){
+        return this.mailingInformationElements.getMailingTxtElements().get(field+"LblColor").getAttribute("color")!=null&&
+                this.mailingInformationElements.getMailingTxtElements().get(field+"LblColor").getAttribute("color").equals("red");
+    }
+
 }

@@ -18,6 +18,7 @@ public class MercuryBookFlightPage extends BasePage{
 
     protected String summaryTableXpath = "/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[2]/td/table/tbody/tr";
 
+
     public boolean verifyMandatoryFields(String color){
         return bookFlightPassengerInfoSection.checkMandatoryFields(color);
     }
@@ -40,5 +41,9 @@ public class MercuryBookFlightPage extends BasePage{
 
     public boolean getSummaryDepartInfo(){
         return bookFlightSummarySection.getTableContentBookFlightPage(summaryTableXpath).get("depart").isEmpty();
+    }
+
+    public boolean isBookFlightPageLoaded(){
+        return this.bookAFlightHeader.isDisplayed();
     }
 }

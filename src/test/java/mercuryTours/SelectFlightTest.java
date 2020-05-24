@@ -51,5 +51,17 @@ public class SelectFlightTest extends BaseTest{
 
     }
 
+    @Test(priority = 4, description = "TC37_BookFlightPage_Verify_Non mandatory Values Presence")
+    public void verifyDepartTable2(){
+        MercuryHomePage.open(this.myDriver);
+        MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
+
+        //mainPage.happyPath(mainPage);
+
+        for (Map.Entry me : mainPage.happyPath(mainPage).entrySet()) {
+            System.out.println(me.getKey() + " : " + me.getValue());
+        }
+
+    }
 }
 

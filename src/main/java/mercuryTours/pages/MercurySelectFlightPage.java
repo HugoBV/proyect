@@ -49,4 +49,6 @@ public class MercurySelectFlightPage extends BasePage {
         continue2BookFlight.click();
         return new MercuryBookFlightPage(this.driver);
     }
+
+
 }

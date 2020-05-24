@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;;
 import org.openqa.selenium.support.How;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class MercuryHomePage extends BasePage{
 
     private static final String MERCURY_MAIN_PAGE = "http://newtours.demoaut.com/";
@@ -53,5 +56,6 @@ public class MercuryHomePage extends BasePage{
     public boolean isSpecialSectionAvailable(){
         return specialsSection.isSpecialsHeaderVisible();
     }
+
 
 }
