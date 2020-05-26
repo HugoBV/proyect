@@ -24,28 +24,26 @@ public class BaseSection {
     protected FlightPreferencesElement flightPreferencesElement;
     protected FlightSelectFlightElement flightSelectFlightElement;
     protected PassengerInfoDetailsElement passengerInfoDetailsElement;
+    protected FlightConfirmationElement flightConfirmationElement;
     protected Logger log;
     protected String fromMonth;
     protected String fromDay;
     protected String toMonth;
     protected String toDay;
+    protected Calendar cal = Calendar.getInstance();
 
     public BaseSection(WebDriver driver) {
-        Calendar cal = Calendar.getInstance();
+
         this.driver = driver;
         this.initElements();
 
-        this.fromMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
-        this.fromDay = new SimpleDateFormat("dd").format(cal.getTime());
-        cal.add(Calendar.DATE, 20);
-        this.toMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
-        this.toDay = new SimpleDateFormat("dd").format(cal.getTime());
+
 
     }
 
 
     private void initElements() {
-        WebElement rootElement = this.driver.findElement(By.xpath("//body/div/table"));
+        WebElement rootElement = this.driver.findElement(By.xpath("//body"));
         this.topMenuElement = new TopMenuElement(rootElement);
         this.leftMenuElement = new LeftMenuElement(rootElement);
         this.contactInformationElements = new ContactInformationElement(rootElement);
@@ -56,7 +54,20 @@ public class BaseSection {
         this.flightPreferencesElement = new FlightPreferencesElement(rootElement);
         this.flightSelectFlightElement = new FlightSelectFlightElement(rootElement);
         this.passengerInfoDetailsElement = new PassengerInfoDetailsElement(rootElement);
+        this.flightConfirmationElement = new FlightConfirmationElement(rootElement);
         this.log = LogManager.getLogger(BaseSection.class.getName());
+        this.fromMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
+        this.fromDay = new SimpleDateFormat("dd").format(cal.getTime());
+        cal.add(Calendar.DATE, 20);
+        this.toMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
+        this.toDay = new SimpleDateFormat("dd").format(cal.getTime());
     }
 
+
+    public boolean isSignOnAvailable(){return this.topMenuElement.topMenu().get("signOn").isDisplayed();}
+    public boolean isRegisterAvailable(){return this.topMenuElement.topMenu().get("register").isDisplayed();}
+    public boolean isSupportAvailable(){return this.topMenuElement.topMenu().get("support").isDisplayed();}
+    public boolean isContactAvailable(){return this.topMenuElement.topMenu().get("contact").isDisplayed();}
+    public boolean isFlightsAvailable(){return this.leftMenuElement.leftMenu().get("flights").isDisplayed();}
+    public boolean isCruisesAvailable(){return this.leftMenuElement.leftMenu().get("cruises").isDisplayed();}
 }

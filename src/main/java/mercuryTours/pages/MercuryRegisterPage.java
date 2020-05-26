@@ -18,10 +18,7 @@ public class MercuryRegisterPage extends BasePage {
     }
 
     public boolean isHeaderVisible(){
-        if(registerHeader.isDisplayed())
-            return true;
-        else
-            return false;
+           return registerHeader.isDisplayed();
     }
 
     public void fillContactInformation(String fName, String lName,String phone, String email){

@@ -15,7 +15,7 @@ public class homeTest extends BaseTest{
     public void usingLeftMenuToGoFlightsPageNoSignIn(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryFlightsPage flightsPage = mainPage.goFlightsPage("flights");
+        MercuryFlightsPage flightsPage = mainPage.goFlightsPage();
         Assert.assertFalse(flightsPage.isFlightDetailSectionAvailable(),"Access to Flights page is refused and redirected to Home page.");
     }
 
@@ -23,7 +23,7 @@ public class homeTest extends BaseTest{
     public void usingLeftMenuToGoFlightsPageSignIn(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         String expectedMessage1 = "Dear ,";
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.isFlightDetailSectionAvailable(),"Access to Flights page is granted and redirected to Flights page.");
@@ -33,15 +33,16 @@ public class homeTest extends BaseTest{
     public void usingLeftMenuToGoCruisesPageSignIn(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryCruisesPage cruisesPage = mainPage.goCruisesPage("cruises");
-        Assert.assertTrue(cruisesPage.isCruisesAvailable(),"User is redirected to Cruises page.");
+        MercuryCruisesPage cruisesPage = mainPage.goCruisesPage();
+        Assert.assertTrue(cruisesPage.isCruisesHeaderAvailable(),"User is redirected to Cruises page.");
     }
 
     @Test(priority = 3, description = "TC15_Home Page - Top Menu(Sign-ON)_User is redirected to Sign-On Page")
     public void usingTopMenuToSignOnPage(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        mainPage.isSigOnTopMenuOptionAvailable();
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.verifyWelcomeMsg(),"User is redirected to Sign-On page.");
     }
 
@@ -49,7 +50,7 @@ public class homeTest extends BaseTest{
     public void usingTopMenuToRegisterPage(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         Assert.assertTrue(regPage.isHeaderVisible(),"User is redirected to Register page.");
     }
 
@@ -57,7 +58,7 @@ public class homeTest extends BaseTest{
     public void usingTopMenuToSupportPage(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryUnderConstructionPage underConstructionPage =  mainPage.goSupportPage("support");
+        MercuryUnderConstructionPage underConstructionPage =  mainPage.goSupportPage();
         Assert.assertTrue(underConstructionPage.isUnderConstructionHeaderAvailable(),"User is redirected to Under Construction page.");
     }
 
@@ -65,7 +66,7 @@ public class homeTest extends BaseTest{
     public void usingTopMenuToContactPage(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryUnderConstructionPage underConstructionPage =  mainPage.goContactPage("contact");
+        MercuryUnderConstructionPage underConstructionPage =  mainPage.goContactPage();
         Assert.assertTrue(underConstructionPage.isUnderConstructionHeaderAvailable(),"User is redirected to Under Construction page.");
     }
 }

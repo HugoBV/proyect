@@ -19,6 +19,10 @@ public class TopMenuElement extends BaseElement{
             {"contact","//a[contains(text() ,'CONTACT')]","XPATH"},
             };
 
+    public List<WebElement> getSignOff(){
+        return this.rootElement.findElements(By.xpath("//a[contains(text() ,'SIGN-OFF')]"));
+    }
+
     public HashMap<String, WebElement> topMenu(){
 
         return this.getWebElements(rawElements);

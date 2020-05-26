@@ -13,7 +13,7 @@ public class MercuryCruisesPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//img[contains(@src,'cruise_special.gif')]")
     private WebElement cruisesSpecialHeader;
 
-    public boolean isCruisesAvailable(){
+    public boolean isCruisesHeaderAvailable(){
         return cruisesSpecialHeader.isDisplayed();
     }
 }

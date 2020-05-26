@@ -1,28 +1,8 @@
 <suite thread-count="1" verbose="1" name="Mercury" annotations="JDK" parallel="tests">
 
-    <test name="Sign-On: Page">
+    <test name="E2E">
         <classes>
-            <class name="mercuryTours.signOnTest"/>
-        </classes>
-    </test>
-    <test name="Home: Page">
-        <classes>
-            <class name="mercuryTours.homeTest"/>
-        </classes>
-    </test>
-    <test name="Register: Page">
-        <classes>
-            <class name="mercuryTours.registerTest"/>
-        </classes>
-    </test>
-    <test name="Flights: Page">
-        <classes>
-            <class name="mercuryTours.FlightsTest"/>
-        </classes>
-    </test>
-    <test name="SelectFlight: Page">
-        <classes>
-            <class name="mercuryTours.SelectFlightTest"/>
+            <class name="mercuryTours.E2ETest"/>
         </classes>
     </test>
 </suite>
