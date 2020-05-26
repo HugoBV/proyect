@@ -21,14 +21,17 @@ public class TopSection extends BaseSection{
 
     }
 
-
-    public void other() {
-
-        System.out.println("pi");
-        WebElement root = driver.findElement(By.xpath("//body/div/table"));
-        root.findElement(By.xpath("//a[contains(text() ,'SIGN-ON')]")).click();
-
+    public boolean isSignOffAvailable(){
+        //System.out.println(this.topMenuElement.getSignOff().size()!=0);
+        return this.topMenuElement.getSignOff().size()!=0;
     }
+
+    public void goSignOff(){
+
+        this.topMenuElement.getSignOff().get(0).click();
+    }
+
+
 
 
 }

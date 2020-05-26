@@ -49,6 +49,41 @@ public class BookFlightPassengerInfoSection extends BaseSection{
         this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("mealSel").selectByIndex(0);
     }
 
+    public void fillPassengerFullForm(String[] values){
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("firstName").sendKeys(values[0]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("lastName").sendKeys(values[1]);
+        this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("mealSel").selectByVisibleText(values[2]);
+        this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("cardTypeSel").selectByVisibleText(values[3]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("number").sendKeys(values[4]);
+        this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("expirationMonthSel").selectByVisibleText(values[5]);
+        this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("expirationYearSel").selectByVisibleText(values[6]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("ccFirstName").sendKeys(values[7]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("ccMidName").sendKeys(values[8]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("ccLastName").sendKeys(values[9]);
+
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billAddress1").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billAddress1").sendKeys(values[11]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billAddress2").sendKeys(values[12]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billCity").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billCity").sendKeys(values[13]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billState").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billState").sendKeys(values[14]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billZip").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("billZip").sendKeys(values[15]);
+        this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("billCountrySel").selectByValue("207");
+        this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("billCountrySel").selectByValue(values[16]);
+
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delAddress1").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delAddress1").sendKeys(values[18]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delAddress2").sendKeys(values[19]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delCity").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delCity").sendKeys(values[20]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delState").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delState").sendKeys(values[21]);
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delZip").clear();
+        this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("delZip").sendKeys(values[22]);
+    }
+
     public void fillPassengerCCDetails()
     {
 
@@ -60,6 +95,8 @@ public class BookFlightPassengerInfoSection extends BaseSection{
         this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("ccMidName").sendKeys(defValue);
         this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get("ccLastName").sendKeys(defValue);
     }
+
+
 
     public void fillPassengerCCDetails(String card, String cardNumber, String ccMonth,String ccYear, String ccName, String ccMidName,String ccLname)
     {
@@ -127,4 +164,8 @@ public class BookFlightPassengerInfoSection extends BaseSection{
         this.passengerInfoDetailsElement.getFlightDetailsSelElements().get("delCountrySel").selectByVisibleText(delCountry);
     }
 
+    public boolean isFieldMarkedAsMandatory(String field){
+        return this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get(field+"Lbl").getAttribute("color")!=null&&
+                this.passengerInfoDetailsElement.getPassengerInfoNonSelElements().get(field+"Lbl").getAttribute("color").equals("red");
+    }
 }

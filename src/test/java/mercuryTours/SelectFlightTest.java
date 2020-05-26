@@ -15,7 +15,7 @@ public class SelectFlightTest extends BaseTest{
     public void checkDepartTable(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         MercurySelectFlightPage selectFlightPage = flightsPage.continueToSelectFlight();
         Assert.assertTrue(selectFlightPage.checkDepartFlightTableColumns(0), "Depart table columns and default values are the expected ones");
@@ -25,7 +25,7 @@ public class SelectFlightTest extends BaseTest{
     public void checkReturnTable(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         MercurySelectFlightPage selectFlightPage = flightsPage.continueToSelectFlight();
         Assert.assertTrue(selectFlightPage.checkReturnFlightTableColumns(0), "Return table columns and default values are the expected ones");
@@ -43,7 +43,7 @@ public class SelectFlightTest extends BaseTest{
         String retMonth = new SimpleDateFormat("MMMM").format(cal.getTime());
         String retDay = new SimpleDateFormat("dd").format(cal.getTime());
         String[] flightDetailsValues = {"roundTrip","1 ","London",depMonth,depDay,"Sydney",retMonth,retDay,"business","Pangea Airlines"};
-        MercuryFlightsPage flightsFinder = mainPage.goRegisterPage("register").getRegistrationDone().goFlightsPage("flights");
+        MercuryFlightsPage flightsFinder = mainPage.goRegisterPage().getRegistrationDone().goFlightsPage("flights");
         flightsFinder.fillFlightFinderForm(flightDetailsValues);
         MercurySelectFlightPage selectFlightPage = flightsFinder.continueToSelectFlight();
         selectFlightPage.selectDepartFlight(2);
@@ -51,17 +51,6 @@ public class SelectFlightTest extends BaseTest{
 
     }
 
-    @Test(priority = 4, description = "TC37_BookFlightPage_Verify_Non mandatory Values Presence")
-    public void verifyDepartTable2(){
-        MercuryHomePage.open(this.myDriver);
-        MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
 
-        //mainPage.happyPath(mainPage);
-
-        for (Map.Entry me : mainPage.happyPath(mainPage).entrySet()) {
-            System.out.println(me.getKey() + " : " + me.getValue());
-        }
-
-    }
 }
 

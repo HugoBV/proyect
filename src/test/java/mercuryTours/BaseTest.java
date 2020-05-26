@@ -14,7 +14,7 @@ public class BaseTest {
     protected WebDriverWait myWait;
     protected Logger log;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUp() {
         // Define which browser to use
         String browser = "chrome";
@@ -24,7 +24,7 @@ public class BaseTest {
         this.log = LogManager.getLogger(BaseTest.class.getName());
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         myDriver.close();
         myDriver.quit();

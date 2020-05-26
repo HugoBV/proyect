@@ -14,7 +14,7 @@ public class registerTest extends BaseTest{
         log.info("Starting TC01 - Registration Page_User Registration Mandatory Field");
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         String[] fieldsToVerify = {"firstName","lastName","phone","email","userName","password","confirmPassword"};
         for(int i=0; i<fieldsToVerify.length;i++) {
             if (i < 4) {
@@ -29,7 +29,7 @@ public class registerTest extends BaseTest{
     public void verifyThatBlankRegistrationIsPossible(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         String expectedMessage1 = "Dear ,";
         Assert.assertTrue(regPage.getRegistrationDone().registrationMessageExpectedValue(expectedMessage1),"User Name displayed with the register name that you provide at the formulary");
     }
@@ -39,7 +39,7 @@ public class registerTest extends BaseTest{
         MercuryHomePage.open(this.myDriver);
         String expectedMessage1 = "Dear "+regInfo[0]+" "+regInfo[1]+",";
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         Assert.assertTrue(regPage.getRegistrationDone(regInfo).registrationMessageExpectedValue(expectedMessage1),"User Name displayed with the register name that you provide at the formulary");
     }
 
@@ -48,7 +48,7 @@ public class registerTest extends BaseTest{
         MercuryHomePage.open(this.myDriver);
         String expectedMessage1 = "Dear "+regInfo[0]+" "+regInfo[1]+",";
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
-        Assert.assertTrue(regPage.getRegistrationDone(regInfo).pressSignInLink().pageReady(),"Sign-in Page should be displayed");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
+        Assert.assertTrue(regPage.getRegistrationDone(regInfo).pressSignInLink().isSignOnHeaderAvailable(),"Sign-in Page should be displayed");
     }
 }

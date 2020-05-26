@@ -34,7 +34,7 @@ public class FlightsTest extends BaseTest {
         Calendar cal = Calendar.getInstance();
         String MonthDefaultValue = new SimpleDateFormat("MMM").format(cal.getTime());
         String DayDefaultValue = new SimpleDateFormat("dd").format(cal.getTime());
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         String[] expectedValues = {"roundtrip","1 ","Acapulco",MonthDefaultValue,DayDefaultValue,"Acapulco",MonthDefaultValue,DayDefaultValue};
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.checkIfFlightDetailsDefaultValuesAreTheExpected(expectedValues), "Default fields are correctly selected when user access to 'flight page'");
@@ -44,7 +44,7 @@ public class FlightsTest extends BaseTest {
     public void checkTypeRadioButton(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.isOneRadioDeselectedWhenOtherRadioIsSelected("oneWay"), "Only one 'Radio button' can be selected and 'Round Trip is the default selection");
     }
@@ -55,7 +55,7 @@ public class FlightsTest extends BaseTest {
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         String[] expectedDropDownOptions = {"1","2","3","4"};
         String expectedDropDownDefaultValue = "1";
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         //flightsPage.checkPassengers(expectedDropDownDefaultValue,expectedDropDownOptions);
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownDefaultValue,expectedDropDownOptions,"passengerSel"), "Passengers dropdown has 1 to 4 options available and 1 is the default selection");
@@ -67,7 +67,7 @@ public class FlightsTest extends BaseTest {
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         String[] expectedDropDownOptions = {"Acapulco","Frankfurt","London","New York","Paris","Portland","San Francisco","Seattle","Sydney","Zurich"};
         String expectedDropDownDefaultValue = "Acapulco";
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
 
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownDefaultValue,expectedDropDownOptions,"departingFromSel"), "Departing from dropdown works correctly and Acapulco is the default selection");
@@ -83,7 +83,7 @@ public class FlightsTest extends BaseTest {
         String[] expectedDropDownOnDayOptions = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
         String expectedDropDownOnMonthDefaultValue = new SimpleDateFormat("MMM").format(cal.getTime());
         String expectedDropDownOnDayDefaultValue = new SimpleDateFormat("dd").format(cal.getTime());
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownOnMonthDefaultValue,expectedDropDownOnMonthOptions,"onMonthSel"), " 'On' Month dropdown works correctly and current date is the default selection");
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownOnDayDefaultValue,expectedDropDownOnDayOptions,"onDaySel"), " 'On' Day dropdown works correctly and current date is the default selection");
@@ -95,7 +95,7 @@ public class FlightsTest extends BaseTest {
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         String[] expectedDropDownOptions = {"Acapulco","Frankfurt","London","New York","Paris","Portland","San Francisco","Seattle","Sydney","Zurich"};
         String expectedDropDownDefaultValue = "Frankfurt";
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
 
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownDefaultValue,expectedDropDownOptions,"arrivingInSel"), "Arriving dropdown works correctly and Frankfurt is the default selection");
@@ -111,7 +111,7 @@ public class FlightsTest extends BaseTest {
         String[] expectedDropDownOnDayOptions = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
         String expectedDropDownOnMonthDefaultValue = new SimpleDateFormat("MMM").format(cal.getTime());
         String expectedDropDownOnDayDefaultValue = new SimpleDateFormat("dd").format(cal.getTime());
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownOnMonthDefaultValue,expectedDropDownOnMonthOptions,"returningMonthSel"), " 'Returning' Month dropdown works correctly and current date is the default selection");
         Assert.assertTrue(flightsPage.validateDetailsDropdowns(expectedDropDownOnDayDefaultValue,expectedDropDownOnDayOptions,"returningDaySel"), " 'Returning' Day dropdown works correctly and current date is the default selection");
@@ -121,7 +121,7 @@ public class FlightsTest extends BaseTest {
     public void validateServiceClassRadio(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.isOneServiceClassRadioDeselectedWhenOtherRadioIsSelected("first"), "Only one option is allowed to be selected, the radio button option is highlighted when the option is selected and the other options are not");
     }
@@ -132,7 +132,7 @@ public class FlightsTest extends BaseTest {
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         String[] expectedDropDownOptions = {"No Preference","Blue Skies Airlines","Unified Airlines","Pangea Airlines"};
         String expectedDropDownDefaultValue = "No Preference";
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
 
         Assert.assertTrue(flightsPage.validatePreferencesDropdowns(expectedDropDownDefaultValue,expectedDropDownOptions,"airlineSel"), "Only one option is allowed to be selected on the dropdown field, and the option selected is displayen on the field");
@@ -144,7 +144,7 @@ public class FlightsTest extends BaseTest {
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
         String expectedServiceClassDefaultValue = "Economy Class";
         String expectedAirlineDefaultValue = "No Preference";
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.checkIfFlightPreferencesDefaultValuesAreTheExpected(expectedServiceClassDefaultValue,expectedAirlineDefaultValue), "Preferences has default options selected");
     }
@@ -153,7 +153,7 @@ public class FlightsTest extends BaseTest {
     public void validateIfContinueButtonIsDisplayed(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercuryRegisterPage regPage =  mainPage.goRegisterPage("register");
+        MercuryRegisterPage regPage =  mainPage.goRegisterPage();
         MercuryFlightsPage flightsPage = regPage.getRegistrationDone().goFlightsPage("flights");
         Assert.assertTrue(flightsPage.isContinueButtonVisible(), "\"Continue\" button, \"Select flight\" page is displayed");
     }

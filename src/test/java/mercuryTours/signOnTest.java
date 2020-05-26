@@ -11,7 +11,7 @@ public class signOnTest extends BaseTest{
     public void validateWelcomeMessage(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.verifyWelcomeMsg(),"Welcome message is shown");
     }
 
@@ -19,7 +19,7 @@ public class signOnTest extends BaseTest{
     public void goRegisterPageByClickingRegisterLink(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.checkRegisterLink().isHeaderVisible(),"User should be redirected to the \"Registration Page\"");
 
     }
@@ -28,7 +28,7 @@ public class signOnTest extends BaseTest{
     public void registerUsingValidData(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.signIn("User","Pass").isSpecialSectionAvailable(),"User should be logged in correctly and redirected to the \"HOME PAGE\"");
     }
 
@@ -36,7 +36,7 @@ public class signOnTest extends BaseTest{
     public void registerUsingInvalidData(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertFalse(signOnPage.signIn(),"Error message \"Invalid username or password\" should be displayed");
     }
 
@@ -44,7 +44,7 @@ public class signOnTest extends BaseTest{
     public void validateThatUserNameIsMandatory(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.signIn("","Pass").isSpecialSectionAvailable(),"\"Mandatory field 'User Name' is missing \" error message should be displayed");
     }
 
@@ -52,7 +52,7 @@ public class signOnTest extends BaseTest{
     public void validateThatPasswordIsMandatory(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.signIn("User","").isSpecialSectionAvailable(),"\"Mandatory field 'Password' is missing \" error message should be displayed");
     }
 
@@ -60,7 +60,7 @@ public class signOnTest extends BaseTest{
     public void validateCopyrightMessage(){
         MercuryHomePage.open(this.myDriver);
         MercuryHomePage mainPage = new MercuryHomePage(this.myDriver);
-        MercurySignOnPage signOnPage = mainPage.goSignOnPage("signOn");
+        MercurySignOnPage signOnPage = mainPage.goSignOnPage();
         Assert.assertTrue(signOnPage.verifyCopyright(),"Copyright message should match");
 
     }

@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import java.util.HashMap;
+
 public class MercuryBookFlightPage extends BasePage{
     public MercuryBookFlightPage(WebDriver driver) {
         super(driver, driver.getCurrentUrl());
@@ -39,11 +41,28 @@ public class MercuryBookFlightPage extends BasePage{
         bookFlightPassengerInfoSection.fillPassengerDeliveryDetails();
     }
 
+    public void fillBookAFlightFormFullForm(String[] values){
+        this.bookFlightPassengerInfoSection.fillPassengerFullForm(values);
+    }
+
     public boolean getSummaryDepartInfo(){
         return bookFlightSummarySection.getTableContentBookFlightPage(summaryTableXpath).get("depart").isEmpty();
     }
 
     public boolean isBookFlightPageLoaded(){
         return this.bookAFlightHeader.isDisplayed();
+    }
+
+    public HashMap<String, String> getSummaryFlightTable(){
+        return bookFlightSummarySection.getTableContentBookFlightPage(summaryTableXpath);
+    }
+
+    public boolean checkIfFieldIsMandatoryAKARed(String field){
+        return this.bookFlightPassengerInfoSection.isFieldMarkedAsMandatory(field);
+    }
+
+    public MercuryFlightConfirmationPage completeFlightBooking(){
+        this.securePurchaseButton.click();
+        return new MercuryFlightConfirmationPage(driver);
     }
 }

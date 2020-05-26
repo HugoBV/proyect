@@ -15,6 +15,11 @@ public class MercuryFlightsPage extends BasePage{
     @FindBy(how = How.XPATH, using = "//input[@name='findFlights']")
     private WebElement flightContinue;
 
+    @FindBy(how = How.CSS, using = "img[src$='mast_flightfinder.gif']")
+    private WebElement flightFinderHeader;
+
+    public boolean isFlightFinderHeaderVisible(){ return flightFinderHeader.isDisplayed();}
+
     public boolean isFlightDetailSectionAvailable(){
         return flightDetailsSection.isFightFinderHeaderVisible();
     }
